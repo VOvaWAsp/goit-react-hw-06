@@ -1,8 +1,12 @@
+import { useDispatch } from 'react-redux';
 import css from './Contact.module.css';
+import { deleteContacts } from '../../redux/contactsSlice';
 // import { FaPhoneAlt } from "react-icons/fa";
 // import { RxAvatar } from "react-icons/rx";
 
 export const Contact = ({ contacts }) => {
+  const dispatch = useDispatch();
+  const handleDelete = () => dispatch(deleteContacts(contacts.id));
   console.log(contacts);
   return (
     <div>
@@ -14,7 +18,7 @@ export const Contact = ({ contacts }) => {
         {/* <FaPhoneAlt size={16} /> */}
         {contacts.number}
       </p>
-      <button className={css.button} type="button">
+      <button onClick={handleDelete} className={css.button} type="button">
         Delete
       </button>
     </div>
