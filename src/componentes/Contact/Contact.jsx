@@ -4,7 +4,7 @@ import { deleteContacts } from '../../redux/contactsSlice';
 // import { FaPhoneAlt } from "react-icons/fa";
 // import { RxAvatar } from "react-icons/rx";
 
-export const Contact = ({ contacts }) => {
+export default function Contact({ contacts }) {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContacts(contacts.id));
   console.log(contacts);
@@ -23,4 +23,4 @@ export const Contact = ({ contacts }) => {
       </button>
     </div>
   );
-};
+}

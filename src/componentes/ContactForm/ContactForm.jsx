@@ -12,7 +12,7 @@ const validationFormSchema = yup.object().shape({
   number: yup.string().required('Required'),
 });
 
-export const ContactForm = () => {
+export default function ContactForm() {
   const nameId = useId();
   const numberId = useId();
   const dispatch = useDispatch();
@@ -63,4 +63,4 @@ export const ContactForm = () => {
       </Formik>
     </div>
   );
-};
+}
