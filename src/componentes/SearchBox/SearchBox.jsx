@@ -4,7 +4,7 @@ import { filterFiltration } from '../../redux/filterSlice';
 
 export default function SearchBox() {
   const dispatch = useDispatch();
-  const filters = useSelector(state => state.filters);
+  const filters = useSelector(state => state.filter);
   console.log(filters);
 
   //   const fsdfsfg = contacts.map(contact => {

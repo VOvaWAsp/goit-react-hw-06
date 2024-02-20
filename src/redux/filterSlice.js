@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const filterSlice = createSlice({
   name: 'filters',
@@ -12,26 +12,19 @@ const filterSlice = createSlice({
       //     filter.name.toLowerCase().includes(action.payload.toLowerCase())
       //   );
     },
-    prepare(text) {
-      return {
-        payload: {
-          text,
-        },
-      };
-    },
   },
 });
 
 export const { filterFiltration } = filterSlice.actions;
 
-// const persistFilters = {
-//   key: 'filters',
-//   storage,
-// };
+const persistFilters = {
+  key: 'filters',
+  storage,
+};
 
-// export const filterReducer = persistReducer(persistFilters, filterSlice.reducer);
+export const filterReducer = persistReducer(persistFilters, filterSlice.reducer);
 
-export const filterReducer = filterSlice.reducer;
+// export const filterReducer = filterSlice.reducer;
 
 // const filterSlice = createSlice({
 //   name: 'filters',
